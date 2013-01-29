@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss xmlns:media="http://search.yahoo.com/mrss/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+
+<channel>
+<title>MAMA 2 RSS Data Stream for $(MAMA_SOURCE_NAME)</title>
+<description>RSS Data Feed for $(MAMA_SOURCE_NAME)</description>
+<link>http://$(WEB_SERVER_NAME):$(WEB_SERVER_PORT)$(URI)</link>
+<lastBuildDate>$(CURRENT_TIME)</lastBuildDate>
+<pubDate>$(CURRENT_TIME)</pubDate>
+<item>
+<title>Symbol: $(MAMA_SYMBOL_NAME)</title>
+<description>Bid $(wBidPrice) Ask $(wAskPrice)</description>
+<link>http://$(WEB_SERVER_NAME):$(WEB_SERVER_PORT)/$(MAMA_MIDDLEWARE_NAME)/$(MAMA_TRANSPORT_NAME)/$(MAMA_SOURCE_NAME)/$(MAMA_SYMBOL_NAME)</link>
+<guid isPermaLink="false">http://$(WEB_SERVER_NAME):$(WEB_SERVER_PORT)/$(MAMA_MIDDLEWARE_NAME)/$(MAMA_TRANSPORT_NAME)/$(MAMA_SOURCE_NAME)/$(MAMA_SYMBOL_NAME)</guid>
+<pubDate>$(wLineTime)</pubDate>
+</item>
+</channel>
+</rss>

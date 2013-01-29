@@ -1,0 +1,56 @@
+# Include this file after you set your variables
+
+# Common to all compilers
+DEPS=.depend
+O=.o
+CPP=.cpp
+MOVE=mv
+INCLUDES += -I$(SRCDIR)
+
+# Parameters likely to migrate to Makefile.gcc
+MAKEDEP = $(CXX) -MM
+LD_FLAGS += -rdynamic
+STATIC = -Xlinker -Bstatic
+DYNAMIC = -Xlinker -Bdynamic
+
+# Set the MAMA variable in your application Makefile to include MAMA
+ifneq (,$(MAMA))
+  $(warning MAMA_HOME=$(MAMA_HOME))
+  INCLUDES += -I$(MAMA_HOME)/include
+  LDFLAGS += -L$(MAMA_HOME)/lib
+  STATIC_LIBS += -lmamacpp -lwombatcommon
+  DYNAMIC_LIBS += -lpthread -ldl -lmama -lrt
+endif
+
+# Set the DEBUG variable in your application Makefile to create a debug build
+ifneq (,$(DEBUG))
+  CXX += -O0 -g3 -D__DEBUG
+else
+  CXX += -O3
+endif
+
+ifneq (,$(ZLIB))
+  STATIC_LIBS += -lz
+endif
+
+# Set the BENCHMARK variable in your application Makefile to enable benchmarking
+ifneq (,$(BENCHMARK))
+  ALL_DEPS += framework/BenchMark$(O)
+  CXXFLAGS += -D__BENCHMARK
+endif
+
+# Build together the variables we have been assembling to this point
+CXXFLAGS += $(INCLUDES)
+LIBS = $(STATIC) $(STATIC_LIBS) $(DYNAMIC) $(DYNAMIC_LIBS)
+
+# How to compile an object file
+%$(O): %$(CPP)
+	$(CXX) $(INCLUDES) -o $@ -c $<
+
+# This is how to generate an intelligent dependency file
+$(DEPS): 
+	$(MAKEDEP) $(CXXFLAGS) $(patsubst ALL_OBJS) > $(DEPS).1
+	cat $(DEPS).1 | sed $(foreach v,$(ALL_OBJS), -e 's#$(notdir $(v))#$(v)#') > $(DEPS)
+	rm -f $(DEPS).1
+
+

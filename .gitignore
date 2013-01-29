@@ -11,3 +11,10 @@
 *.lai
 *.la
 *.a
+
+# Project Files
+*.project
+*.cproject
+*.mk
+*.d
+.settings/
