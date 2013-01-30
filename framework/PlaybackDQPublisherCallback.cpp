@@ -86,15 +86,10 @@ void PlaybackDQPublisherCallback::onRequest (
         short                    msgType,
         MamaMsg&                 msg)
 {
-#if MAMA_VERSION_MAJOR > 5
 	GenericMamaCache* gmc = (GenericMamaCache*)publishTopicInfo.mCache;
 	MamaDQPublisher* mdqp = publishTopicInfo.mPub;
 	const char* symbol = publishTopicInfo.mSymbol;
-#else
-	GenericMamaCache* gmc = (GenericMamaCache*)publishTopicInfo.cache;
-	MamaDQPublisher* mdqp = publishTopicInfo.pub;
-	const char* symbol = publishTopicInfo.symbol;
-#endif
+
 	MamaMsg* reply_msg = gmc->getMsg();
 
 	printf("Processing additional request for %s [%s]\n", symbol, reply_msg->toString());

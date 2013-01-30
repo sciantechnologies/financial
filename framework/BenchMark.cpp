@@ -1,4 +1,4 @@
-#include "BenchMark.h
+#include "BenchMark.h"
 
 BenchMark::BenchMark(string n)
 {
