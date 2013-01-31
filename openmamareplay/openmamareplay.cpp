@@ -11,7 +11,7 @@
 using namespace Wombat;
 using namespace std;
 
-const char* APPLICATION_NAME = "";
+const char* APPLICATION_NAME = "openmamareplay";
 
 void cleanup(int sig)
 {
@@ -31,7 +31,7 @@ Replays custom MAMA payload agnostic messaging format.\n\
  -m\t[middleware]\tMiddleware on which to publish\n\
  -DF\t[file]\t\tData dictionary file (ascii format)\n\
  -rewind\t[count]\t\t[Optional] Number of times to rewind (-1 for infinite)\n\
- -rate\t[count]\t\t[Optional] Number of messages per second (-1 for no rate)\n", basename(APPLICATION_NAME));
+ -rate\t[count]\t\t[Optional] Number of messages per second (-1 for no rate)\n", APPLICATION_NAME);
 }
 
 void playBackFile(const char* filename, PlaybackDQPublisherCallback* managerCallback, long int rate)
@@ -106,7 +106,6 @@ int main(int argc, const char** argv)
     const char* dict_filename = "";
     const char* rewind_count = "";
     const char* rate_count = "";
-    APPLICATION_NAME = argv[0];
 
     int i = 1;
     int rewind = 1;

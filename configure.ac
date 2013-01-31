@@ -43,6 +43,8 @@ AC_CHECK_HEADERS([mama/mama.h])
 AC_OUTPUT([Makefile \
         framework/Makefile \
         mama2rss/Makefile \
+        openmamacapture/Makefile \
+        openmamareplay/Makefile \
         thirdparty/Makefile \
         thirdparty/mongoose/Makefile \
         ])

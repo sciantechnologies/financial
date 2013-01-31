@@ -12,9 +12,37 @@
 *.la
 *.a
 
+# Compiled Binaries
+*.dll*
+*.exe
+
 # Project Files
 *.project
 *.cproject
 *.mk
 *.d
 .settings/
+
+# Autotools generated files
+.deps/
+.libs/
+autom4te.cache/
+install-sh
+libtool
+ltmain.sh
+aclocal.m4
+Makefile.in
+Makefile
+config.h
+config.h.in~
+config.status
+config.guess
+config.log
+config.sub
+configure
+stamp-h1
+depcomp
+missing
+
+# Autotools file we may need to consider at a later point, but not now
+config.h.in
