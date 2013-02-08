@@ -1,6 +1,7 @@
 AC_INIT([Scian Financial Tools], [0.1], [contact@sciantechnologies.com], [scian_financial_tools], [http://www.sciantechnologies.com/])
 AC_PREREQ([2.59])
 AM_INIT_AUTOMAKE([1.10 no-define])
+AC_CONFIG_MACRO_DIR([m4])
 AC_CONFIG_HEADERS([config.h])
 AC_PROG_CXX
 AC_LIBTOOL_DLOPEN
@@ -32,17 +33,20 @@ AC_ARG_WITH(
 		with_mama=true
          ],
          [
-            AC_MSG_ERROR([Valid MAMA installation not found at: $MAMA_HOME)])
+            AC_MSG_ERROR([Valid MAMA installation not found at: $MAMA_HOME])
          ])
     ])
 AM_CONDITIONAL(WITH_MAMA, test x$with_mama = "xtrue")
 
-AC_CHECK_HEADERS([mama/mama.h])
+AC_CHECK_HEADERS([mama/mama.h],
+	[ AC_MSG_NOTICE([MAMA headers successfully found]) ], 
+	[ AC_MSG_ERROR([Valid MAMA installation not found - cannot compile]) ]
+)
 
 # Produce the makefiles - this *must* come last
 AC_OUTPUT([Makefile \
         framework/Makefile \
-        mama2rss/Makefile \
+        openmama2rss/Makefile \
         openmamacapture/Makefile \
         openmamareplay/Makefile \
         thirdparty/Makefile \

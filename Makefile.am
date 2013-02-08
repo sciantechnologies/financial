@@ -1,1 +1,3 @@
-SUBDIRS = framework thirdparty mama2rss openmamacapture openmamareplay
+SUBDIRS = framework thirdparty openmama2rss openmamacapture openmamareplay
+
+ACLOCAL_AMFLAGS = -I m4
