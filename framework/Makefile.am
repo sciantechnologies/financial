@@ -5,8 +5,6 @@ LIBS		+=	-lwombatcommon -lmama -lmamacpp -lz
 AM_LDFLAGS	=	-no-undefined
 
 libscianfinancial_la_SOURCES	=	\
-		BenchMark.cpp \
-		BenchMark.h \
 		GenericMamaCache.cpp \
 		GenericMamaCache.h \
 		GenericMamaManager.cpp \
@@ -30,11 +28,7 @@ libscianfinancial_la_SOURCES	=	\
 		PlaybackDQPublisherCallback.cpp \
 		PlaybackDQPublisherCallback.h \
 		RecordingMamaSubscriptionCallback.cpp \
-		RecordingMamaSubscriptionCallback.h \
-		StatTracker.cpp \
-		StatTracker.h \
-		Threader.cpp \
-		Threader.h
+		RecordingMamaSubscriptionCallback.h 
 
 clean:
 	rm -rf .libs _libs
