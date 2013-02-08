@@ -1,6 +1,6 @@
-bin_PROGRAMS		=	mama2rss
+bin_PROGRAMS		=	openmama2rss
 AM_LDFLAGS		=	-L@srcdir@/../framework/ -L@srcdir@/../thirdparty/mongoose
 AM_CPPFLAGS		=	-I@srcdir@/../thirdparty/
 LDADD			=	-lscianfinancial -lmongoose -lmama -lmamacpp
 
-mama2rss_SOURCES	=	mama2rss.cpp
+openmama2rss_SOURCES	=	openmama2rss.cpp

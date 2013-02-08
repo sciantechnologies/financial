@@ -155,7 +155,7 @@ static void* web_callback(enum mg_event event, struct mg_connection *conn,
 
 void usage()
 {
-	printf("\nUsage: mama2rss [OPTION]... \n\
+	printf("\nUsage: openmama2rss [OPTION]... \n\
 RSS web server / portal for transcoding MAMA data.\n\
 \n\
  -m [middleware] \tMiddlewares to load (may be passed multiple times)\n\
