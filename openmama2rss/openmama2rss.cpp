@@ -31,7 +31,7 @@
 #include <framework/Mama2RssEngine.h>
 
 #define		MAX_NUM_MIDDLEWARES				5
-#define		MAMA_2_RSS_APP_NAME				"mama2rss"
+#define		MAMA_2_RSS_APP_NAME				"openmama2rss"
 
 GenericMamaManager* mGenericMamaManager = NULL;
 MamaRssTemplate* mMamaRssTemplate = NULL;

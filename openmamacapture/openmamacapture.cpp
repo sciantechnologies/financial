@@ -105,7 +105,16 @@ void cleanup(int sig)
 
 void usage()
 {
-
+        printf("\nUsage: openmamacapture [OPTION]... \n\
+Open MAMA payload agnostic data source recording utility.\n\
+\n\
+ -m [middleware] \tMiddlewares to load (may be passed multiple times)\n\
+ -S [source] \t\tMAMA source to record from\n\
+ -tport [transport] \tMAMA transport to record from\n\
+ -f [symbolfile] \tNewline delimited list of symbols to record\n\
+ -s [symbol] \t\tSymbols to record from (can be passed multiple times)\n\
+ -o [outputfile] \tOutput file to record to (e.g. recording.playback.gz)\n\
+\n\n");
 }
 
 int main(int argc, const char** argv)
@@ -166,6 +175,11 @@ int main(int argc, const char** argv)
             output_filename = argv[i + 1];
             i += 2;
         }
+    }
+
+    if(argc <= 1){
+        usage();
+	exit(1);
     }
 
     gzfh = new GzFileHandler(output_filename, GZ_FILE_HANDLER_WRITE);
