@@ -1,7 +1,6 @@
 AC_INIT([Scian Financial Tools], [0.1], [contact@sciantechnologies.com], [scian_financial_tools], [http://www.sciantechnologies.com/])
 AC_PREREQ([2.59])
 AM_INIT_AUTOMAKE([1.10 no-define])
-AC_CONFIG_MACRO_DIR([m4])
 AC_CONFIG_HEADERS([config.h])
 AC_PROG_CXX
 AC_LIBTOOL_DLOPEN
